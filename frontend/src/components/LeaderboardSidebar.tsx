@@ -25,13 +25,12 @@ export function LeaderboardSidebar() {
   const [loading, setLoading] = useState(false);
   const VITE_BACKEND_API = import.meta.env.VITE_BACKEND_API
   const fetchLeaderboard = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const res = await fetch(`${VITE_BACKEND_API}/api/leaderboard/`);
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
       const data: LeaderboardRepo[] = await res.json();
       setLeaderboard(Array.isArray(data) ? data : []);
-      console.log("Leaderboard fetched:", data);
     } catch (err) {
       console.error(err);
       setLeaderboard([]);
