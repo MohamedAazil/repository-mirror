@@ -31,7 +31,6 @@ export function LeaderboardSidebar() {
     const res = await fetch(`${VITE_BACKEND_API}/api/leaderboard/`);
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
       const data: LeaderboardRepo[] = await res.json();
-      debugger
       setLeaderboard(Array.isArray(data) ? data : []);
       console.log("Leaderboard fetched:", data);
     } catch (err) {

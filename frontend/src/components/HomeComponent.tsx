@@ -12,6 +12,8 @@ interface ScoreBreakdown {
   code_quality: number
   documentation: number
   tests: number
+  project_structure: number
+  real_world_value: number
 }
 
 interface Score {
@@ -132,6 +134,18 @@ const HomeComponent = () => {
                   <div>
                     <p className="text-sm">Testing</p>
                     <Progress value={data.score.breakdown.tests} />
+                  </div>
+                  <div>
+                    <p className="text-sm">Testing</p>
+                    <Progress value={data.score.breakdown.tests} />
+                  </div>
+                  <div>
+                    <p className="text-sm">Project Structure</p>
+                    <Progress value={data.score.breakdown.project_structure} />
+                  </div>
+                  <div>
+                    <p className="text-sm">Real World Value</p>
+                    <Progress value={data.score.breakdown.real_world_value} />
                   </div>
                 </div>
               </CardContent>

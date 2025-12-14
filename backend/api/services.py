@@ -6,9 +6,9 @@ import json
 
 client = OpenAI(api_key=settings.OPENAI_APIKEY)
 
+GITHUB_TOKEN = settings.GITHUB_TOKEN
 def fetch_repo_data(repo_url):
     GITHUB_API = settings.GITHUB_API
-    GITHUB_TOKEN = settings.GITHUB_TOKEN
     owner, repo = repo_url.rstrip("/").split("/")[-2:]
     headers = {
         "Authorization": f"token {GITHUB_TOKEN}"
@@ -46,6 +46,14 @@ def extract_repo_signals(repo_info, contents):
         ),
         "top_level_files": [f["name"] for f in contents],
     }
+
+def fetch_commits(owner: str, repo: str, per_page=30):
+    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits?per_page={per_page}"
+    res = requests.get(url, headers=headers)
+    if res.status_code != 200:
+        raise Exception(f"Failed to fetch commits: {res.text}")
+    return res.json()
 
 
 def llm_evaluate_repository(signals):
