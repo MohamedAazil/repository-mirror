@@ -24,11 +24,10 @@ export function LeaderboardSidebar() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardRepo[]>([]);
   const [loading, setLoading] = useState(false);
   const VITE_BACKEND_API = import.meta.env.VITE_BACKEND_API
-
   const fetchLeaderboard = async () => {
     setLoading(true);
     try {
-    const res = await fetch(`${VITE_BACKEND_API}/api/leaderboard/`);
+      const res = await fetch(`${VITE_BACKEND_API}/api/leaderboard/`);
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
       const data: LeaderboardRepo[] = await res.json();
       setLeaderboard(Array.isArray(data) ? data : []);
@@ -40,9 +39,11 @@ export function LeaderboardSidebar() {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     fetchLeaderboard();
+    const interval = setInterval(fetchLeaderboard, 2000)
+    return () => clearInterval(interval)
   }, []);
 
   return (

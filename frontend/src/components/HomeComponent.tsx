@@ -188,7 +188,6 @@ const HomeComponent = () => {
               <ShareLeaderboard 
                 repoUrl={repoUrl} 
                 onShared={() => {
-                  // Optionally show a toast or refresh leaderboard
                   console.log("Repository shared successfully!");
                 }} 
                 data={data}
