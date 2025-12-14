@@ -1,6 +1,8 @@
 # GitHub Repository Analyzer 🚀
 
 🌐 **Live Project:** [https://repository-mirror.vercel.app/](https://repository-mirror.vercel.app/)
+## 🎥 [Sample Video](https://drive.google.com/file/d/1xSYqf-fKMv8bzLtoliBS1UPy5uJ6x4Fn/view?usp=sharing) 
+
 
 An AI-powered web application that objectively evaluates GitHub repositories using real-world recruiter standards. The system analyzes repository metadata, structure, commit activity, and development practices, then uses an LLM to generate scores, rankings, and improvement roadmaps.
 
