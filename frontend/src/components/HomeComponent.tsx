@@ -41,6 +41,7 @@ const HomeComponent = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [data, setData] = useState<ApiResponse | null>(null)
   const [error, setError] = useState<string>("")
+  const VITE_BACKEND_API = import.meta.env.VITE_BACKEND_API
 
   const analyzeRepo = async (): Promise<void> => {
     setLoading(true)
@@ -48,7 +49,7 @@ const HomeComponent = () => {
     setData(null)
 
     try {
-      const res = await fetch("http://localhost:8000/api/analyze-repo/", {
+      const res = await fetch(`${VITE_BACKEND_API}/api/analyze-repo/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ repo_url: repoUrl })

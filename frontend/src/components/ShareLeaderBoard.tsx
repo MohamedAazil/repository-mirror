@@ -13,11 +13,11 @@ interface ShareLeaderboardProps {
 export default function ShareLeaderboard({ repoUrl, onShared, data }: ShareLeaderboardProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const VITE_BACKEND_API = import.meta.env.VITE_BACKEND_API
   const shareRepo = async () => {
     setLoading(true);
     try {
-      await fetch("http://localhost:8000/api/leaderboard/", {
+      await fetch(`${VITE_BACKEND_API}/api/leaderboard/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
