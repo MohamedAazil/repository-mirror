@@ -136,10 +136,6 @@ const HomeComponent = () => {
                     <Progress value={data.score.breakdown.tests} />
                   </div>
                   <div>
-                    <p className="text-sm">Testing</p>
-                    <Progress value={data.score.breakdown.tests} />
-                  </div>
-                  <div>
                     <p className="text-sm">Project Structure</p>
                     <Progress value={data.score.breakdown.project_structure} />
                   </div>
