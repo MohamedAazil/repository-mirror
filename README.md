@@ -56,7 +56,7 @@ An AI-powered web application that objectively evaluates GitHub repositories usi
 | Backend      | Django, Django REST Framework       |
 | AI           | OpenAI API                          |
 | External API | GitHub REST API                     |
-| Database     | SQLite / PostgreSQL (configurable)  |
+| Database     | SQLite                              |
 | Deployment   | Render (Backend), Vercel (Frontend) |
 
 ---
